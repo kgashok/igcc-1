@@ -114,7 +114,7 @@ def run_compile( subs_compiler_command, runner ):
 			return stderrdata
 		else:
 			return "Unknown compile error - compiler did not write any output."
-		
+
 
 def run_exe( exefilename ):
 	run_process = subprocess.Popen( exefilename,
@@ -191,6 +191,7 @@ class Runner:
 
 					if self.compile_error is not None:
 						print "[Compile error - type .e to see it.]"
+                                                self.undo()
 					else:
 						stdoutdata, stderrdata = run_exe( self.exefilename )
 
@@ -249,7 +250,7 @@ class Runner:
 
 def parse_args( argv ):
 	parser = OptionParser( version="igcc " + version.VERSION )
-			
+
 	parser.add_option( "-I", "", dest="INCLUDE", action="append",
 		help = "Add INCLUDE to the list of directories to " +
 			"be searched for header files." )
@@ -258,7 +259,7 @@ def parse_args( argv ):
 			"be searched for library files." )
 	parser.add_option( "-l", "", dest="LIB", action="append",
 		help = "Search the library LIB when linking." )
-		
+
 	(options, args) = parser.parse_args( argv )
 
 	if len( args ) > 0:
