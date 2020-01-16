@@ -1,6 +1,8 @@
 Interactive GCC
 ===============
 
+[![Run on Repl.it](https://repl.it/badge/github/kgashok/igcc-1)](https://repl.it/github/kgashok/igcc-1)
+
 Interactive GCC (igcc) is a real-eval-print loop (REPL) for C/C++ programmers.
 
 It can be used like this:
