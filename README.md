@@ -7,6 +7,7 @@ Interactive GCC (igcc) is a real-eval-print loop (REPL) for C/C++ programmers.
 
 It can be used like this:
 
+```bash
  $ ./igcc 
  g++> int a = 5;
  g++> a += 2;
@@ -16,9 +17,11 @@ It can be used like this:
  g++> cout << a << endl;
  6
  g++> 
+```
 
 It is possible to include header files you need like this:
 
+```bash
  $ ./igcc 
  g++> #include <vector>
  g++> vector<int> myvec;
@@ -29,9 +32,11 @@ It is possible to include header files you need like this:
  g++> printf( "%d\n", myvec.size() );
  2
  g++> 
+```
 
 Compile errors can be tolerated until the code works:
 
+```bash
  $ ./igcc
  g++> #include <map>
  g++> map<string,int> hits;
@@ -47,9 +52,11 @@ Compile errors can be tolerated until the code works:
  bar 15
  foo 12
  g++> 
+```
 
 Extra include directories can be supplied:
 
+```bash
  $ ./igcc -Itest/cpp -Itest/cpp2
  g++> #include "hello.h"
  g++> hello();
@@ -58,22 +65,27 @@ Extra include directories can be supplied:
  g++> world();
  world!
  g++> 
+```
 
 Libs can be linked:
 
+```bash
  $ ./igcc -lm
  g++> #include "math.h"
  g++> cout << pow( 3, 3 ) << endl; // Actually a bad example since libm.a is already linked in C++
  27
  g++> 
+```
 
 Your own libs can be linked too:
 
+```bash
  $ ./igcc -Itest/cpp -Ltest/cpp -lmylib
  g++> #include "mylib.h"
  g++> defined_in_cpp();
  defined_in_cpp saying hello.
  g++> 
+```
 
 The cstdio, iostream and string headers are automatically included, and the std namespace is automatically in scope.
 
@@ -86,12 +98,16 @@ https://sourceforge.net/projects/igcc/files/
 
 Untar it like so:
 
+```bash
  tar -xjf igcc-0.1.tar.bz2
+```
 
 And then start the program like this:
 
+```bash
  cd igcc-0.1
  ./igcc
+```
 
 Then type the C++ code you want to execute. It will be compiled with GCC and the results (if any) will be displayed.
 
